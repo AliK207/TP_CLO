@@ -11,6 +11,8 @@ public abstract class Composant {
 		
 	}
 
-	public abstract String description();	
+	public String description(){
+		return this.getId();
+	}	
 	
 }
