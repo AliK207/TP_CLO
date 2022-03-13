@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Sonde extends Composant {
 
 
@@ -12,9 +14,14 @@ public class Sonde extends Composant {
 	
 	public boolean getEtat(){
 	
+		boolean b;
+
 		System.out.print(port +" de " + this.cmp.getId() +" ,true or false ? ");
-	       	return System.console().readLine() == "true";
-		
+
+		Scanner scan = new Scanner(System.in);
+		b = scan.nextBoolean(); 
+	
+		return b;		
 	}
 
 
