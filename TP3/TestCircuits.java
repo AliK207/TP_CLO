@@ -70,7 +70,7 @@ public class TestCircuits {
 		securite.off();
 
 //		o1.setIn1(i1);
-		o1.setIn1(new Sonde(o1,"in1"));
+		o1.setIn1(new LazySonde(o1,"in1"));
 		o1.setIn2(i2);
 
 		n1.setIn(securite);
