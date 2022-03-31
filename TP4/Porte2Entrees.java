@@ -34,6 +34,22 @@ public abstract class Porte2Entrees extends Porte{
 	}
 	public abstract boolean eval() throws NonConnecteException;
 
+	public void probe(SondeTable tableSondes){
+	
+		if(in1 instanceof Interrupteur)
+			in1 = tableSondes.getSonde((Interrupteur)in1,this,"input1");
+		if(in2 instanceof Interrupteur)
+			in2 = tableSondes.getSonde((Interrupteur)in2,this,"input2");
+		
+	}
+
+	public void unprobe(SondeTable tableSondes){
+	
+		if(in1 instanceof LazySonde)
+			in1 = tableSondes.getInterrupteur((LazySonde)in1);
+		if(in2 instanceof LazySonde)
+			in2 = tableSondes.getInterrupteur((LazySonde)in2);
+	}
 
 }
 

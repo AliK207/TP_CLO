@@ -5,6 +5,11 @@ public class Circuit {
 	List<Composant> composants = new ArrayList<Composant>();
 	String nom;
 
+	// Circuit
+	
+	protected SondeTable tableSondes = new SondeTable();
+
+
 	public Circuit(String nom, Composant[] cps){
 		
 		this.nom = nom;
@@ -61,7 +66,21 @@ public class Circuit {
 		return lv;
 	}
 
+	public void probe(){
+	
+		for(Composant c : composants)
+			((Porte)c).probe(this.tableSondes);
 
+	}
+	
+	public void resetSondes(){
+		tableSondes.resetSondes();
+	}
+
+	public void unprobe(){
+		for(Composant c : composants)
+			((Porte)c).unprobe(this.tableSondes);
+	}
 
 }
 		

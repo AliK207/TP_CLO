@@ -34,13 +34,24 @@ public class TestCircuits {
 	
 	}
 	
-	static void test(Circuit circ){
+	static void test(Circuit circ)throws NonConnecteException {
 		
 		System.out.println(circ.nomenclature());
 		circ.description();
 		System.out.println(circ.getIns());
 		System.out.println(circ.getOuts());
+		
+		System.out.printf("\n\nTest des fonctions\n\n");
+		
+		circ.traceEtats();
 
+		circ.probe();
+		System.out.printf("\n");
+		circ.resetSondes();
+		System.out.printf("\n");
+		circ.unprobe();
+		System.out.printf("\n");
+		
 				
 	}
 
@@ -80,7 +91,7 @@ public class TestCircuits {
 		i2.on();
 		securite.off();
 
-//		o1.setIn1(i1);
+		o1.setIn1(i1);
 		o1.setIn1(new LazySonde(o1,"in1"));
 		o1.setIn2(i2);
 
@@ -106,12 +117,12 @@ public class TestCircuits {
 
 		//TP 4 
 		Circuit circ = new Circuit("MY FIRST CIRCUIT",composants);
-	//	try{
+		try{
 			test(circ);
-	//	}
-	//	catch(NonConnecteException ex){
-	//		System.out.println("Probleme\n");
-//		}
+		}
+		catch(NonConnecteException ex){
+			System.out.println("Probleme\n");
+	}
 
 		
 
